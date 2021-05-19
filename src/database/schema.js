@@ -1,7 +1,20 @@
 const mongoose = require('mongoose');
 
-const sampleSchema = new mongoose.Schema({
+const register = new mongoose.Schema({
+    username: String,
+    email: {
+        type: String,
+        unique: true
+    },
+    joinedDate: Date
+},{collection: 'register'});
 
-},{collection: 'login'});
+const signin = new mongoose.Schema({
+    email: String,
+    password: String
+},{collection: 'signin'})
 
-module.exports = SampleSchema = mongoose.model('sample',sampleSchema);
+module.exports = {
+    RegisterSchema: mongoose.model('register',register),
+    SigninSchema : mongoose.model('signin',signin)
+};
