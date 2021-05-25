@@ -1,7 +1,7 @@
 const routes = require('express').Router();
 const bcrypt = require('bcrypt');
 
-const Schema = require('../../database/schema');
+const Schema = require('../../model/schema');
 
 routes.post('/register', (req, res) => {
     let user = req.body;
@@ -26,6 +26,7 @@ routes.post('/register', (req, res) => {
                             res.status(200).send({data: {
                                 username:data.username,
                                 email: data.email,
+                                picture: data.picture,
                                 joinedDate: data.joinedDate
                             },successMsg: 'register successfully'})
                         }else {

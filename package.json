@@ -10,11 +10,17 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "connect-mongo": "^4.4.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.12.8"
+    "express-session": "^1.17.2",
+    "mongoose": "^5.12.8",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "nodemon": "^2.0.7"
   }
 }
