@@ -4,7 +4,6 @@ const session = require('express-session');
 const { v4: uuidv4 } = require('uuid');
 const MongoStore = require('connect-mongo');
 const dotenv = require('dotenv');
-const passport = require('passport');
 
 const mongoURL = require('./config');
 
@@ -26,7 +25,8 @@ app.use(session({
     cookie: {
         secure: false,
         maxAge: 1000*60*60*1,
-        sameSite: 'none'
+        sameSite: 'none',
+        httpOnly: false
     },
     store: MongoStore.create({
         mongoUrl: mongoURL,
@@ -34,11 +34,8 @@ app.use(session({
         ttl: 1000*60*60*1
     })
 }))
-app.use(passport.initialize())
-// app.use(passport.session())
 
 require('./config/database');
-require('./config/passport');
 
 app.use('/',require('./api-routes'));
 
