@@ -33,7 +33,7 @@ routes.post('/register', (req, res) => {
                                 req.session.userID = data._id;
                                 req.session.username = data.username;
                             }
-                            res.status(200).send({data: {
+                            res.status(200).send({user: {
                                 username:data.username,
                                 email: data.email,
                                 picture: data.picture,
