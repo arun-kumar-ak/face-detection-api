@@ -1,6 +1,8 @@
 const routes = require('express').Router();
 
-routes.get('/logout', (req,res)=> {
+const session = require('../../middleware/session');
+
+routes.get('/logout', session, (req,res)=> {
     req.session.destroy()
     res.status(200).send({successMsg: 'logout successfully'});
 })

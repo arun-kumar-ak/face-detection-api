@@ -2,8 +2,9 @@ const routes = require('express').Router();
 const bcrypt = require('bcrypt');
 
 const Schema = require('../../model/schema');
+const session = require('../../middleware/session');
 
-routes.post('/signin', (req, res, next) => {
+routes.post('/signin', session, (req, res, next) => {
   let user = req.body;
   Schema.SigninSchema.findOne({email: user.email}, (err,data)=> {
     if(data !==null ) {
