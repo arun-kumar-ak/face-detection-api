@@ -18,7 +18,7 @@ module.exports = session({
         httpOnly: false
     },
     store: MongoStore.create({
-        mongoUrl: mongoURL,
+        mongoUrl: process.env.MONGODB_URL,
         collectionName: 'session',
         ttl: 1000*60*60*1
     })

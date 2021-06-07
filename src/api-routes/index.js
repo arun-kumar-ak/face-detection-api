@@ -1,7 +1,7 @@
 const routes = require('express').Router();
 
 routes.get('/', (req, res, next) => {
-  res.status(200).send('');
+  res.status(200).send('its working');
 });
 
 routes.use(require('./signin/signin'));
