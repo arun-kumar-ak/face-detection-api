@@ -12,9 +12,7 @@ app.use(express.urlencoded({extended: true}))
 
 require('./src/config/database');
 //require('./api-routes')
-app.use('/',(req,res) => {
-    res.send('sh.....')
-});
+app.use('/',require('./src/api-routes/index'));
 
 const PORT = process.env.PORT || 3002;
 app.listen(PORT, ()=> {
