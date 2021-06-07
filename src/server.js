@@ -11,9 +11,12 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 
 require('./config/database');
+//require('./api-routes')
+app.use('/',(req,res) => {
+    res.send('sh.....')
+});
 
-app.use('/',require('./api-routes'));
-
-app.listen(process.env.PORT || 3002, ()=> {
-    console.log(`server working successfully on ${process.env.PORT}`);
+const PORT = process.env.PORT || 3002;
+app.listen(PORT, ()=> {
+    console.log(`server working successfully on ${PORT}`);
 })
