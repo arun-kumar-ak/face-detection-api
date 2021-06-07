@@ -10,7 +10,7 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 
-require('./config/database');
+require('./src/config/database');
 //require('./api-routes')
 app.use('/',(req,res) => {
     res.send('sh.....')
