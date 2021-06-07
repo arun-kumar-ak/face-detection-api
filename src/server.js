@@ -10,9 +10,9 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 
-require('./src/config/database');
+require('./config/database');
 //require('./api-routes')
-app.use('/',require('./src/api-routes/index'));
+app.use('/',require('./api-routes/index'));
 
 const PORT = process.env.PORT || 3002;
 app.listen(PORT, ()=> {
