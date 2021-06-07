@@ -18,3 +18,4 @@ const PORT = process.env.PORT || 3002;
 app.listen(PORT, ()=> {
     console.log(`server working successfully on ${PORT}`);
 })
+// "dotenv": "^8.2.0",
