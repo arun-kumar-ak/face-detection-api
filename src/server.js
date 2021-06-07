@@ -11,8 +11,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 
 require('./config/database');
-//require('./api-routes')
-app.use('/',require('./api-routes/index'));
+require('./api-routes')
+// app.use('/',require('./api-routes/index'));
 
 const PORT = process.env.PORT || 3002;
 app.listen(PORT, ()=> {
