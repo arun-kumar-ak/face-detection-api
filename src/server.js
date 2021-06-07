@@ -14,6 +14,6 @@ require('./config/database');
 
 app.use('/',require('./api-routes'));
 
-app.listen(process.env.PORT, ()=> {
+app.listen(process.env.PORT || 3002, ()=> {
     console.log(`server working successfully on ${process.env.PORT}`);
 })
