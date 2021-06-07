@@ -11,7 +11,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 
 require('./config/database');
-app.use('/',require('./api-routes/index'));
+app.use('/',(req,res) => {
+    res.send('its working on heroku')
+});
 // app.use('/',require('./api-routes/index'));
 
 const PORT = process.env.PORT || 3002;
