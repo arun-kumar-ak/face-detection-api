@@ -3,7 +3,7 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors({
-    origin: ['http://localhost:3002/','http://localhost:3002/authUser','http://localhost:3002/signin','http://localhost:3002/register','http://localhost:3002/face-detect','http://localhost:3002/logout'],
+    origin: ['http://localhost:3000/','http://localhost:3000/authUser','http://localhost:3000/signin','http://localhost:3000/register','http://localhost:3000/face-detect','http://localhost:3000/logout'],
     credentials: true,
 }));
 app.use(express.json());
