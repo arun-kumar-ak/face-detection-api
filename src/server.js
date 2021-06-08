@@ -3,7 +3,7 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors({
-    origin: ['https://face-detection-api-fda.herokuapp.com/','https://face-detection-api-fda.herokuapp.com/authUser','https://face-detection-api-fda.herokuapp.com/signin','https://face-detection-api-fda.herokuapp.com/register','https://face-detection-api-fda.herokuapp.com/face-detect','https://face-detection-api-fda.herokuapp.com/logout'],
+    origin: ['http://localhost:3002/','http://localhost:3002/authUser','http://localhost:3002/signin','http://localhost:3002/register','http://localhost:3002/face-detect','http://localhost:3002/logout'],
     credentials: true,
 }));
 app.use(express.json());
