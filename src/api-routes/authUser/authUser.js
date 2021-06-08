@@ -4,6 +4,8 @@ const Schema = require('../../model/schema');
 const session = require('../../middleware/session');
 
 routes.get('/authUser', session, (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
     if(req.session.userID) {
         Schema.RegisterSchema.findOne({_id: req.session.userID}, (err,data) => { 
             if(data !== null) {

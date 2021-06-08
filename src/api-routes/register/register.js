@@ -5,6 +5,8 @@ const Schema = require('../../model/schema');
 const session = require('../../middleware/session');
 
 routes.post('/register', session, (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
     let user = req.body;
     Schema.SigninSchema.findOne({email: user.email}, (err,data) => {
         if(data === null) {
