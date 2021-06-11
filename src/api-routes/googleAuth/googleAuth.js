@@ -21,7 +21,7 @@ routes.post('/auth/google', session, async (req, res) => {
                 email: data.email,
                 picture: data.picture,
                 joinedDate: data.joinedDate
-            },successMsg: 'register successfully'})
+            },successMsg: 'google login successfully'})
         }
     })
 
