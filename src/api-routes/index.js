@@ -9,5 +9,6 @@ routes.use(require('./register/register'));
 routes.use(require('./authUser/authUser'));
 routes.use(require('./faceDetect/faceDetect'));
 routes.use(require('./logout/logout'));
+routes.use(require('./googleAuth/googleAuth'));
 
 module.exports = routes;

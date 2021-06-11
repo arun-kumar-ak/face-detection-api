@@ -11,12 +11,6 @@ routes.post('/signin', session, (req, res, next) => {
       if(bcrypt.compareSync(user.password, data.password)) {
         Schema.RegisterSchema.findOne({email: user.email}, (err,data) => {
           if(data !== null) {
-            if(req.session.visitCount) {
-              req.session.visitCount = req.session.visitCount + 1;
-            }else {
-              req.session.visitCount =  1;
-            }
-            console.log(req.session);
             if(!req.session.userID) {
               req.session.userID = data._id;
             }

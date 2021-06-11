@@ -7,11 +7,6 @@ routes.get('/authUser', session, (req, res, next) => {
     if(req.session.userID) {
         Schema.RegisterSchema.findOne({_id: req.session.userID}, (err,data) => { 
             if(data !== null) {
-              if(req.session.visitCount) {
-                req.session.visitCount = req.session.visitCount + 1;
-              }else {
-                req.session.visitCount =  1;
-              }
               console.log(req.session);
               res.status(200).send({user: {
                 username:data.username,
@@ -24,6 +19,7 @@ routes.get('/authUser', session, (req, res, next) => {
             }
         })
     }else {
+      req.session.destroy()
       res.status(200).send({nothing: true})
     }
 })

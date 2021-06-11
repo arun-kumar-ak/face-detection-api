@@ -14,7 +14,7 @@ module.exports = session({
     cookie: {
         secure: false,
         maxAge: 1000*60*60*1,
-        sameSite: 'none',
+        sameSite: 'strict',
         httpOnly: false
     },
     store: MongoStore.create({

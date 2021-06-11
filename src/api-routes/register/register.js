@@ -19,20 +19,14 @@ routes.post('/register', session, (req, res) => {
                     let newUser = new Schema.RegisterSchema({
                         username: user.username,
                         email: user.email,
+                        picture: user.picture,
                         joinedDate: new Date()
                     })
 
                     newUser.save((err,data) => {
                         if(data!== null) {
-                            if(req.session.visitCount) {
-                              req.session.visitCount = req.session.visitCount + 1;
-                            }else {
-                              req.session.visitCount =  1;
-                            }
-                            console.log(req.session);
-                            if(!req.session.userID && req.session.username) {
+                            if(!req.session.userID) {
                                 req.session.userID = data._id;
-                                req.session.username = data.username;
                             }
                             res.status(200).send({user: {
                                 username:data.username,

@@ -14,12 +14,19 @@ const register = new mongoose.Schema({
         type: String,
         default: ''
     },
+    faceDetect: {
+        type: Number,
+        default: 0
+    },
     joinedDate: Date
 },{collection: 'register'});
 
 const signin = new mongoose.Schema({
     email: String,
-    password: String
+    password: {
+        type: String,
+        default: ''
+    }
 },{collection: 'signin'})
 
 module.exports = {
