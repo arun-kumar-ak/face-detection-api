@@ -2,8 +2,6 @@ const session = require('express-session');
 const { v4: uuidv4 } = require('uuid');
 const MongoStore = require('connect-mongo');
 
-const mongoURL = require('../config');
-
 module.exports = session({
     genid: (req) => {
         return uuidv4()
@@ -12,10 +10,10 @@ module.exports = session({
     resave: false,
     saveUninitialized: true,
     cookie: {
-        secure: false,
+        secure: true,
         maxAge: 1000*60*60*1,
-        // sameSite: 'none',
-        httpOnly: false
+        sameSite: 'none',
+        httpOnly: true
     },
     store: MongoStore.create({
         mongoUrl: process.env.MONGODB_URL,
