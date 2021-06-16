@@ -9,6 +9,10 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 
+if(app.get('env') === 'development') {
+    require('dotenv').config();
+}
+
 require('./config/database');
 
 app.use('/',require('./api-routes/index'));
@@ -17,4 +21,3 @@ const PORT = process.env.PORT || 3002;
 app.listen(PORT, ()=> {
     console.log(`server working successfully on ${PORT}`);
 })
-// "dotenv": "^8.2.0",
