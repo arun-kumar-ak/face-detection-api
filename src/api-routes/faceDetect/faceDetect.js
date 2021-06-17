@@ -13,7 +13,7 @@ routes.get('/face-detect', session, (req, res) => {
                 RegisterSchema.updateOne({_id: id}, {faceDetect: faceDetect})
                     .then((data) => {
                         if(data.ok) {
-                            res.status(200).send({boxData: boxData})
+                            res.status(200).send({boxData: boxData, faceDetect: faceDetect})
                         }
                     })
             })
