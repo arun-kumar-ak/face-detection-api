@@ -10,9 +10,9 @@ module.exports = session({
     resave: false,
     saveUninitialized: true,
     cookie: {
-        secure: false,
+        secure: true,
         maxAge: 1000*60*60*1,
-        // sameSite: ,
+        sameSite: 'None',
         httpOnly: true
     },
     store: MongoStore.create({
