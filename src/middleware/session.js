@@ -10,10 +10,10 @@ module.exports = session({
     resave: false,
     saveUninitialized: true,
     cookie: {
-        secure: false,
+        secure: true,
         maxAge: 1000*60*60*1,
         sameSite: 'none',
-        httpOnly: true
+        httpOnly: false
     },
     store: MongoStore.create({
         mongoUrl: process.env.MONGODB_URL,
