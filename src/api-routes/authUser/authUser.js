@@ -7,7 +7,6 @@ routes.get('/authUser', session, (req, res, next) => {
     if(req.session.userID) {
         Schema.RegisterSchema.findOne({_id: req.session.userID}, (err,data) => { 
             if(data !== null) {
-              console.log(req.session);
               res.status(200).send({user: {
                 username:data.username,
                 email: data.email,
