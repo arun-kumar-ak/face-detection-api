@@ -12,8 +12,8 @@ module.exports = session({
     cookie: {
         secure: true,
         maxAge: 1000*60*60*1,
-        sameSite: 'None',
-        httpOnly: true
+        httpOnly: true,
+        sameSite: 'none'
     },
     store: MongoStore.create({
         mongoUrl: process.env.MONGODB_URL,
