@@ -11,6 +11,7 @@ routes.get('/authUser', session, (req, res, next) => {
                 username:data.username,
                 email: data.email,
                 picture: data.picture,
+                faceDetect: data.faceDetect,
                 joinedDate: data.joinedDate
               },successMsg: 'login successfully'})
             }else {

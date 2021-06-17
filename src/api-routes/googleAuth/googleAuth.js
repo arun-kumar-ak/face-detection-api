@@ -20,6 +20,7 @@ routes.post('/auth/google', session, async (req, res) => {
                 username:data.username,
                 email: data.email,
                 picture: data.picture,
+                faceDetect: data.faceDetect,
                 joinedDate: data.joinedDate
             },successMsg: 'google login successfully'})
         }

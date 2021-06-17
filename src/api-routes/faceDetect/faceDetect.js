@@ -1,9 +1,23 @@
 const routes = require('express').Router();
 const Clarifai = require('clarifai');
 
-routes.get('/face-detect', (req, res) => {  
+const session =  require('../../middleware/session');
+const RegisterSchema = require('../../model/schema').RegisterSchema;
+
+routes.get('/face-detect', session, (req, res) => {  
     const imgResponse = (boxData) => {
-        res.status(200).send({boxData: boxData})
+        const id = req.session.userID;
+        RegisterSchema.findOne({_id: id}, {faceDetect: 1})
+            .then((data) => {
+                let faceDetect = data.faceDetect+1
+                RegisterSchema.updateOne({_id: id}, {faceDetect: faceDetect})
+                    .then((data) => {
+                        if(data.ok) {
+                            res.status(200).send({boxData: boxData})
+                        }
+                    })
+            })
+            .catch(err => console.log(err))
     }
 
     const app = new Clarifai.App({

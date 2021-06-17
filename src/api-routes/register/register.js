@@ -32,6 +32,7 @@ routes.post('/register', session, (req, res) => {
                                 username:data.username,
                                 email: data.email,
                                 picture: data.picture,
+                                faceDetect: data.faceDetect,
                                 joinedDate: data.joinedDate
                             },successMsg: 'register successfully'})
                         }else {
