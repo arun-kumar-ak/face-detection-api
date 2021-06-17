@@ -13,7 +13,7 @@ module.exports = session({
         secure: true,
         maxAge: 1000*60*60*1,
         sameSite: 'none',
-        httpOnly: false
+        httpOnly: true
     },
     store: MongoStore.create({
         mongoUrl: process.env.MONGODB_URL,
