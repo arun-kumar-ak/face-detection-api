@@ -6,14 +6,14 @@ var cookieOption = {}
 
 if(process.env.NODE_ENV === 'development') {
     cookieOption = {
-        maxAge: 1000*60*60*1,
+        maxAge: 1000*60*60*24, //ms * sec * min * hour
         httpOnly: true,
         secure: false,
         sameSite: 'lax'
     }
 }else {
     cookieOption = {
-        maxAge: 1000*60*60*1,
+        maxAge: 1000*60*60*24,
         httpOnly: true,
         secure: true,
         sameSite: 'none'
@@ -31,6 +31,6 @@ module.exports = session({
     store: MongoStore.create({
         mongoUrl: process.env.MONGODB_URL,
         collectionName: 'session',
-        ttl: 1000*60*60*1
+        ttl: 1000*60*60*24
     })
 })
