@@ -3,7 +3,7 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors({
-    origin: ["https://arun-kumar-ak.github.io","http://localhost:3000"],
+    origin: '*',
     credentials: true,
 }));
 app.use(express.json());
@@ -19,7 +19,7 @@ if(app.get('env') === 'development') {
 
 require('./config/database');
 
-app.use('/',(req,res,next) => { res.setHeader('Access-Control-Allow-Origin',"*"); next(); },require('./api-routes/index'));
+app.use('/',require('./api-routes/index'));
 
 const PORT = process.env.PORT || 3002;
 app.listen(PORT, ()=> {
