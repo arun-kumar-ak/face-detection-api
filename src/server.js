@@ -2,8 +2,10 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
+app.use((req,res,next) => {
+    res.header('Access-Control-Allow-Origin',"*");
+})
 app.use(cors({
-    origin: ["http://localhost:3000","https://arun-kumar-ak.github.io","https://arun-kumar-ak.github.io/signin"],
     credentials: true,
 }));
 app.use(express.json());
