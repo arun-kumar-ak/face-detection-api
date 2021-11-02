@@ -5,6 +5,7 @@ const Schema = require('../../model/schema');
 const session = require('../../middleware/session');
 
 routes.post('/signin', session, (req, res, next) => {
+  res.set("Access-Control-Allow-Oring","*");
   let user = req.body;
   Schema.SigninSchema.findOne({email: user.email}, (err,data)=> {
     if(data !==null ) {
