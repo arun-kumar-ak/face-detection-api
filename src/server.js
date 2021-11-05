@@ -2,17 +2,13 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-// app.use((req,res,next) => {
-//     res.header('Access-Control-Allow-Origin',"http://localhost:3000");
-//     next();
-// });
+
 app.use(cors({
+    origin: "http://localhost:3000",
     credentials: true,
 }));
 app.use(express.json());
-app.use(express.urlencoded({
-    origin: "http://localhost:3000",
-    extended: true}))
+app.use(express.urlencoded({extended: true}))
 
 if(app.get('env') !== 'development') {
     app.set('trust proxy', 1)
