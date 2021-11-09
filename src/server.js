@@ -5,7 +5,7 @@ const app = express();
 
 // const origins = ["https://arun-kumar-ak.github.io","http://localhost:3000"];
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: "https://arun-kumar-ak.github.io",
     credentials: true,
     optionsSuccessStatus: 200,
 }));
