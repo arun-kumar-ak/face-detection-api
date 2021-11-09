@@ -2,10 +2,11 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-const origins = ["https://arun-kumar-ak.github.io","http://localhost:3000"];
+const origins = "https://arun-kumar-ak.github.io";
+// const origins = "http://localhost:3000";
 app.use(cors({
     origin: (origin, callback) => {
-        if (origins.indexOf(origin) !== -1) {
+        if (origin === origins) {
           callback(null, true)
         }
     },
