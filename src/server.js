@@ -3,9 +3,9 @@ const cors = require('cors');
 
 const app = express();
 
-// const origins = "http://localhost:3000";
+// const origins = ["https://arun-kumar-ak.github.io","http://localhost:3000"];
 app.use(cors({
-    origin: ["https://arun-kumar-ak.github.io","http://localhost:3000"],
+    origin: "http://localhost:3000",
     credentials: true,
     optionsSuccessStatus: 200,
 }));
