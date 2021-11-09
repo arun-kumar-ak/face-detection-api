@@ -2,9 +2,13 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-
+const origins = ["https://arun-kumar-ak.github.io","http://localhost:3000"];
 app.use(cors({
-    origin: ["https://arun-kumar-ak.github.io","https://arun-kumar-ak.github.io/face-detection"],
+    origin: (origin, callback) => {
+        if (origins.indexOf(origin) !== -1) {
+          callback(null, true)
+        }
+    },
     credentials: true,
 }));
 app.use(express.json());
