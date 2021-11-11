@@ -9,9 +9,7 @@ const origins = ["https://arun-kumar-ak.github.io","http://localhost:3000","http
 app.use(timeout('100s'));
 app.use(cors({
     origin: (origin, callback) => {
-        console.log(origin)
         if(origins.indexOf(origin) !== -1) {
-            console.log("accepted")
             callback(null, true);
         }
     },
