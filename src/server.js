@@ -13,7 +13,8 @@ app.use(cors({
             callback(null, true);
         }
     },
-    // origin: origins,
+    methods: "GET,POST",
+    preflightContinue: true,
     credentials: true,
     optionsSuccessStatus: 200,
 }));
