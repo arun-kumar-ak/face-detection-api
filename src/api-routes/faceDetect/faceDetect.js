@@ -1,10 +1,11 @@
 const routes = require('express').Router();
 const Clarifai = require('clarifai');
+const timeout = require('connect-timeout');
 
 const session =  require('../../middleware/session');
 const RegisterSchema = require('../../model/schema').RegisterSchema;
 
-routes.get('/face-detect', session, (req, res) => {  
+routes.get('/face-detect', timeout('100s'), session, (req, res) => {  
     const imgResponse = (boxData) => {
         const id = req.session.userID;
         RegisterSchema.findOne({_id: id}, {faceDetect: 1})

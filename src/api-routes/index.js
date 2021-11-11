@@ -1,6 +1,7 @@
 const routes = require('express').Router();
+const timeout = require('connect-timeout');
 
-routes.get('/', (req, res, next) => {
+routes.get('/', timeout('100s'), (req, res, next) => {
   res.status(200).send('its working successfully');
 });
 

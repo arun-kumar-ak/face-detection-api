@@ -1,12 +1,10 @@
 const express = require('express');
 const cors = require('cors');
-const timeout = require('connect-timeout');
 
 const app = express();
 
 const origins = ["https://arun-kumar-ak.github.io","http://localhost:3000"];
 
-app.use(timeout('100s'));
 app.use(cors({
     origin: (origin, callback) => {
         if(origins.indexOf(origin) !== -1) {

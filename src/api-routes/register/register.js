@@ -1,10 +1,11 @@
 const routes = require('express').Router();
 const bcrypt = require('bcrypt');
+const timeout = require('connect-timeout');
 
 const Schema = require('../../model/schema');
 const session = require('../../middleware/session');
 
-routes.post('/register', session, (req, res) => {
+routes.post('/register', timeout('100s'), session, (req, res) => {
     let user = req.body;
     Schema.SigninSchema.findOne({email: user.email}, (err,data) => {
         if(data === null) {

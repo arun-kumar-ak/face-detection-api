@@ -1,9 +1,10 @@
 const routes = require('express').Router();
+const timeout = require('connect-timeout');
 
 const Schema = require('../../model/schema');
 const session = require('../../middleware/session');
 
-routes.post('/auth/google', session, async (req, res) => {
+routes.post('/auth/google', timeout('100s'), session, async (req, res) => {
     const { email } = req.body;
 
     Schema.RegisterSchema.findOne({email: email}, (err, data) => {
