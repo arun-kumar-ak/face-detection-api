@@ -4,17 +4,18 @@ const timeout = require('connect-timeout');
 
 const app = express();
 
-const origins = ["https://arun-kumar-ak.github.io","http://localhost:3000","http://192.168.56.1:3000","http://10.0.2.15:3000"];
+const origins = ["https://arun-kumar-ak.github.io","http://localhost:3000"];
 
 app.use(timeout('100s'));
 app.use(cors({
     origin: (origin, callback) => {
         if(origins.indexOf(origin) !== -1) {
             callback(null, true);
+        }else {
+            callback("CORS doesn't allow");
         }
     },
     methods: "GET,POST",
-    preflightContinue: true,
     credentials: true,
     optionsSuccessStatus: 200,
 }));
