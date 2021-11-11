@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-
+const path = require('path');
 const app = express();
 
 const origins = ["https://arun-kumar-ak.github.io","http://localhost:3000","http://192.168.56.1:3000","http://10.0.2.15:3000"];
@@ -23,7 +23,7 @@ if(app.get('env') === 'development') {
     require('dotenv').config();
 }
 
-require('./config/database');
+require(path.join(__dirname+'/config/database'));
 
 app.use('/',cors({
     origin: (origin, callback) => {
@@ -37,7 +37,7 @@ app.use('/',cors({
     preflightContinue: true,
     credentials: true,
     optionsSuccessStatus: 200,
-}),require('./api-routes/index'));
+}),require(path.join(__dirname+'/api-routes/index')));
 
 const PORT = process.env.PORT || 3002;
 app.listen(PORT, ()=> {
